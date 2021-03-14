@@ -92,10 +92,10 @@ public class EditableBufferedReader extends BufferedReader{
                         line.addChar((char) lect, console.linealPosition());
                         console.character(line.getLength(), line.toString());
                         break;
+                }
             }
-        }
-        this.unsetRaw();
-        return line.toString();   
+            this.unsetRaw();
+            return line.toString();   
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
