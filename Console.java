@@ -41,10 +41,12 @@ public class Console{
         return ((this.getRowCursor()-1)*this.getColumns() + this.getColumnCursor());
     }
 
-    public int[] matricialPosition(int len) throws Exception { //le pasamos tamaño total escrito: line.getLength
+    public int[] matricialPosition(int len) throws Exception { 
+        //we pass the total written size: line.getLength()
         int positions[] = new int[2];
         positions[1] = len % this.getColumns(); //Column
-        if(positions[1] == 0) { //estoy justo al final
+        if(positions[1] == 0) { 
+            //we are in the last position
             positions[0] = len / this.getColumns(); //Row
         } else {
             positions[0] = len / this.getColumns() + 1; //Row
@@ -125,11 +127,11 @@ public class Console{
 
     public void moveRight(int len) throws Exception {
         int[] pos = matricialPosition(len);
-        //int[0] fila; int[1] columna --> last position
+        //int[0] row; int[1] column --> last position
         if(pos[0] == this.row) { 
-            //we are at last row
+            //we are in the last row
             if((pos[1]+1) != this.column) { 
-                //we aren't at last column+1
+                //we aren't in the last column+1
                 this.increaseColumn(len);
             }    
         } else {
@@ -153,12 +155,12 @@ public class Console{
     public void moveEnd(int len) throws Exception {
         this.column = len + 1;
         int[] pos = matricialPosition(len);
-        //int[0] fila; int[1] columna --> last position
+        //int[0] row; int[1] column --> last position
         if(pos[0] == this.row) { 
-            //we are at last row
+            //we are in the last row
             this.column = pos[1]+1;
         } else { 
-            //we aren't at last row
+            //we aren't in the last row
             this.column = this.getColumns();
         }
         this.positionCursor();
@@ -171,9 +173,9 @@ public class Console{
 
     public void moveDown(int len) throws Exception {
         int[] pos = matricialPosition(len);
-        //int[0] fila; int[1] columna --> last position
+        //int[0] row; int[1] column --> last position
         if(pos[0] != this.row) { 
-            //we aren't at last row
+            //we aren't in the last row
             this.increaseRow();
             if(pos[0] == this.row && pos[1] < this.column) {
                 this.column = pos[1]+1;
