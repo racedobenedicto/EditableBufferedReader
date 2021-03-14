@@ -6,32 +6,19 @@ public class Console{
     int rowOrigin, columnOrigin, row, column;
     
     public Console() {
-        //this.inicializar();
         this.row = 1;
         this.column = 1;
     }
 
-    public void inicializar2() throws Exception{
-        System.out.print("\033[6n");
-        System.out.print(System.in.read());
-
-        //String r2 = r.substring(2);
-        //System.out.println("r2: " + r2);
-        //String[] rr = r.split(";");
-        //System.out.println(rr[0]);
-        //String[] row1 = rr[0].split("[[");
-        //System.out.println(row1[1]);
-        //this.rowOrigin = Integer.parseInt(rr[0]);
-        //this.columnOrigin = Integer.parseInt(rr[1]);
-    }
-//inicializar variables
+//inicializar variables    
     public void inicializar() throws Exception{
         System.out.print("\033[2J");
         this.rowOrigin = 0;
         this.columnOrigin = 0;
         System.out.print("\033["+this.rowOrigin+";"+this.columnOrigin+"f");
     }
-//Informacion    
+    
+//Informacion     
     protected int getColumns() throws Exception{
         Process colsProcess = new ProcessBuilder("bash", "-c", "tput cols 2> /dev/tty").start();
         BufferedReader colsReader = new BufferedReader(new InputStreamReader(colsProcess.getInputStream()));
@@ -121,7 +108,6 @@ public class Console{
     }
 
 //Caracteres, numeros, simbolos y espacio
-
     public void character (int len, String line) throws Exception {
         this.increaseColumn(len);
         this.write(line);
@@ -129,7 +115,6 @@ public class Console{
     }
 
 //Teclas de movimiento
-
     public void tab (int len, String line) throws Exception {
         this.column = this.column + 8;
         if (this.column > this.getColumns()){
@@ -188,7 +173,6 @@ public class Console{
     }
 
 //Borrar caracteres
-
     public void deleteChar(String line) throws Exception {
         this.decreaseColumn();
         this.write(line);
