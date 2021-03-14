@@ -68,11 +68,11 @@ public class EditableBufferedReader extends BufferedReader{
                         console.moveLeft();
                         break;
                     case Codes.INSERT:
-                        this.read();
+                        this.read(); //126
                         line.insert();
                         break;
                     case Codes.SUPR:
-                        this.read();
+                        this.read(); //126
                         line.suprimirChar(console.linealPosition()-1);
                         console.suprimirChar(line.toString());
                         break;
