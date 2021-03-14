@@ -2,18 +2,14 @@
 import java.io.*;
 
 public class EditableBufferedReader extends BufferedReader{
-   
-    //private Line[] lines;
+
     public Line line;
     private Console console;
-    private int[] character;
     
     public EditableBufferedReader(Reader r) throws Exception{
         super(r);
         console = new Console();
         line = new Line(console.getColumns());
-        //lines = new Line[10];
-        //lines[0] = new Line(console.getColumns());
     }
 
     protected void setRaw() throws Exception {
