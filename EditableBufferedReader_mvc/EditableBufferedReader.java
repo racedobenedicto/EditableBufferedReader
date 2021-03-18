@@ -28,7 +28,7 @@ public class EditableBufferedReader extends BufferedReader{
     public String readLine() throws IOException {
         try {
             this.setRaw();
-            //Inicialitzar Line i Console
+            //Initialize Line and Console
             Line line;
             Console console;
             console = new Console();
