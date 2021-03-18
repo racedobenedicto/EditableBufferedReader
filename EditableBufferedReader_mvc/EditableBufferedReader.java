@@ -2,12 +2,9 @@
 import java.io.*;
 
 public class EditableBufferedReader extends BufferedReader{
-
-    
-    
+   
     public EditableBufferedReader(Reader r) throws Exception{
         super(r);
-        
     }
 
     protected void setRaw() throws Exception {
