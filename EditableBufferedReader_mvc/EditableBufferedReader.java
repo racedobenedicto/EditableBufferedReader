@@ -4,11 +4,6 @@ public class EditableBufferedReader extends BufferedReader{
     
     public EditableBufferedReader(Reader r) {
         super(r);
-        try {
-            
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 
     protected void setRaw() throws Exception {
