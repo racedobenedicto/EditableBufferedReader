@@ -3,12 +3,10 @@ import java.util.ArrayList;
 public class Line {
     private ArrayList line;
     private boolean mode; //True: overwrite; False: insertion
-    private int pos;
     
     public Line(int len){
         line = new ArrayList<>(len);
         this.mode = false;
-        this.pos = 0;
     }
     
     public void addChar(char c, int pos) throws IndexOutOfBoundsException{
@@ -39,10 +37,6 @@ public class Line {
     public void insert(){
         this.setMode();
     }
-
-    public int getLinePos(){
-        return this.pos;
-    }
     
     public String toString(){
         StringBuffer s = new StringBuffer();
@@ -62,10 +56,6 @@ public class Line {
         } else {
             this.mode = true;
         }
-    }
-    
-    public void setPos(int pos){
-        if(this.pos>0 && this.pos<line.size()) this.pos = pos;
     }
     
     public int getLength(){
