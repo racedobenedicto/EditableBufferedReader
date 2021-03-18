@@ -29,11 +29,13 @@ public class EditableBufferedReader extends BufferedReader{
     public String readLine() throws IOException {
         try {
             this.setRaw();
+            //Initialize Line and Console
             Console console = new Console();
             Line line = new Line(console.getColumns());
             console.inizializar();
             console.setLine(line);
             line.addObserver(console);
+            
             int carriageReturn = 0;
             while(carriageReturn != 1) {
                 int lect = this.read();
