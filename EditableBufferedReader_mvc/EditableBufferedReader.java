@@ -3,13 +3,11 @@ import java.io.*;
 
 public class EditableBufferedReader extends BufferedReader{
 
-    public Line line;
-    private Console console;
+    
     
     public EditableBufferedReader(Reader r) throws Exception{
         super(r);
-        console = new Console();
-        line = new Line(console.getColumns());
+        
     }
 
     protected void setRaw() throws Exception {
@@ -34,6 +32,9 @@ public class EditableBufferedReader extends BufferedReader{
     public String readLine() throws IOException {
         try {
             this.setRaw();
+            Console console = new Console();
+            Line line = new Line(console.getColumns());
+            console.inizializar();
             int carriageReturn = 0;
             while(carriageReturn != 1) {
                 int lect = this.read();
