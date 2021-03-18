@@ -2,20 +2,9 @@ import java.io.*;
 import java.util.Observable;
 
 public class EditableBufferedReader extends BufferedReader{
-   
-    public Line line;
-    private Console console;
     
     public EditableBufferedReader(Reader r) {
         super(r);
-        try {
-            this.console = new Console();
-            console.inicializar();
-            this.line = new Line(console.getColumns());
-            console.setLine(this.line);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 
     protected void setRaw() throws Exception {
@@ -40,6 +29,10 @@ public class EditableBufferedReader extends BufferedReader{
     public String readLine() throws IOException {
         try {
             this.setRaw();
+            Console console = new Console();
+            Line line = new Line(console.getColumns());
+            console.inizializar();
+            console.setLine(this.line);
             line.addObserver(this.console);
             int carriageReturn = 0;
             while(carriageReturn != 1) {
