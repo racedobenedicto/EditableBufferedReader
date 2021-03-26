@@ -110,6 +110,13 @@ public class Console implements Observer {
     public void write(char line) throws Exception {
         System.out.print("\033[@");
         System.out.print(line);
+        if(this.getRowCursor()*this.getColumns() < this.line.getLength()) {
+            char ch = (char) this.line.getChar(this.getRowCursor()*this.getColumns());
+            System.out.print("\033["+(this.getRowCursor()+1)+";1f");
+            System.out.print("\033[@");
+            System.out.print(ch);
+            this.positionCursor();
+        }
     }
 
 //Movement keys
