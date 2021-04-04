@@ -53,15 +53,13 @@ public class EditableBufferedReader extends BufferedReader{
             while((lect = this.read()) != Codes.CR) {
                 switch(lect) {
                     case Codes.TAB:
-                        line.tab(console.linealPosition());
-                        //console.tab(line.getLength(), line.toString());           
+                        line.tab(console.linealPosition());          
                         console.tab(line.getLength(), (char) lect);
                         break;
                     case Codes.DEL:
                         if(console.linealPosition()-1 > 0) {
                             line.deleteChar(console.linealPosition()-1);
-                            //console.deleteChar(line.toString());
-                            console.deleteChar((char) lect);
+                            console.deleteChar();
                         }
                         break;
                     case Codes.UP:
@@ -82,8 +80,7 @@ public class EditableBufferedReader extends BufferedReader{
                     case Codes.SUPR:
                         if(console.linealPosition()-1 > 0) {
                             line.suprimirChar(console.linealPosition()-1);
-                            //console.suprimirChar(line.toString());
-                            console.suprimirChar((char) lect);
+                            console.suprimirChar();
                         }
                         break;
                     case Codes.HOME:
