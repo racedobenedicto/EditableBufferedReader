@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class EditableBufferedReader extends BufferedReader{
+public class EditableBufferedReader extends BufferedReader {
     
     public EditableBufferedReader(Reader r) {
         super(r);
@@ -14,7 +14,7 @@ public class EditableBufferedReader extends BufferedReader{
         new ProcessBuilder("bash", "-c", "stty echo -raw < /dev/tty").start().waitFor();
     }
     
-    public int read() throws IOException{
+    public int read() throws IOException {
         int lect = super.read();
         int lect2, lect3;
         if (lect != Codes.ESC) return lect;
