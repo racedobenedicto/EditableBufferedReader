@@ -175,7 +175,7 @@ public class Console{
             this.positionCursor(this.row, this.column);
             System.out.print(Codes.DELETE);
         }
-        if(pos[1]==0 && pos[0]>1){
+        if(pos[1]==0 && pos[0]>1) {
             this.column = this.getColumns();
             this.positionCursor(this.row, this.column);
             int linealpos = this.linealPosition();
@@ -185,7 +185,7 @@ public class Console{
             this.positionCursor(this.row, this.column);
             System.out.print(Codes.DELETE);
         }
-        if(this.rewriting == 1){
+        if(this.rewriting == 1) {
             this.rewriting = 0;
             this.row = this.rowRewriting;
             this.column = this.columnRewriting;
