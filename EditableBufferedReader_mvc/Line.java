@@ -25,7 +25,7 @@ public class Line {
     }
     
     public void suprimirChar(int pos) throws IndexOutOfBoundsException {
-        this.line.remove(pos);
+        if(pos < this.getLength()) this.line.remove(pos);
     }
        
     public void tab(int cursor){
