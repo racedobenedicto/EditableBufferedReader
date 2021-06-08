@@ -32,7 +32,7 @@ public class Line extends Observable {
     }
     
     public void suprimirChar(int pos) throws IndexOutOfBoundsException {
-        this.line.remove(pos);
+        if(pos < this.getLength()) this.line.remove(pos);
         Codes args = new Codes(Codes.SUPR);
         this.setChanged();
         this.notifyObservers(args);
