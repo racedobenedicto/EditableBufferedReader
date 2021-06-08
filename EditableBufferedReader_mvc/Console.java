@@ -146,16 +146,15 @@ public class Console{
     }
 
 //Delete characteres
-    public void deleteChar(int len) throws Exception {//Falta controlar borrado de posición columna=1
+    public void deleteChar(int len) throws Exception {
         this.decreaseColumn();
         this.positionCursor(this.row, this.column);
         System.out.print(Codes.DELETE);
         this.rewrite(len);
     }
     
-    public void suprimirChar(int len) throws Exception {//Falta controlar borrado de posición sin escribir
+    public void suprimirChar(int len) throws Exception {
         System.out.print(Codes.DELETE);
-        //this.positionCursor(this.row, this.column);
         this.rewrite(len);
     }
 
