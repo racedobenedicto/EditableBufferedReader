@@ -4,9 +4,9 @@ public class Codes {
     public final static int CTRL_C = 3;
     public final static int CTRL_V = 22;
     public final static int CTRL_Z = 26;
-    public final static int CR = 13; //Retrono de carro
+    public final static int CR = 13; //Enter
     public final static int SPACE = 32; 
-    public final static int TAB = 9; //Tabulador horizontal
+    public final static int TAB = 9; //Horizontal Tabul
     public final static int ESC = 27;
     public final static int WAVE = 126;
     public final static int DEL = 127;
