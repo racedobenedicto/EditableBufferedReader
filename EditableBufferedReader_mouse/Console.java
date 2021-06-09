@@ -4,7 +4,7 @@ import java.util.Observable;
 
 public class Console implements Observer {
     static final int rowOrigin = 0;
-	static final int columnOrigin = 0;
+    static final int columnOrigin = 0;
     int row, column, rowRewriting, columnRewriting;
     int rewriting = 0;
     Line line;
